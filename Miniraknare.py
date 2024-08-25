@@ -2,7 +2,7 @@ Tal1_str = input("Tal 1:")
 Tal1_int = int(Tal1_str)
 Talhantering = input("Hur vill du hantera talen? ")
 
-if Talhantering != "sqrt": 
+if Talhantering.upper() != "SQRT": 
     Tal2_str = input("Tal 2: ")
     Tal2_int = int(Tal2_str)
 
@@ -24,7 +24,7 @@ elif Talhantering == "^^":
 elif Talhantering == "//":
     Tal3 = Tal1_int // Tal2_int
     print(Tal3)
-elif Talhantering == "sqrt":
+elif Talhantering.upper() == "SQRT":
     Tal3 = Tal1_int ** 0.5
     print(Tal3)
 elif Talhantering == "%":

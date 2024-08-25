@@ -29,7 +29,6 @@ elif Vilken_trig == "arctan":
 
     tangens = math.atan(Tal_a_float/Tal_b_float)
     print(math.degrees(tangens))
-
 elif Vilken_trig == "cos":
     Vilken_sida = input("Vilken sida vill du räkna ut? (b/c)")
     if Vilken_sida == "b":
@@ -50,8 +49,7 @@ elif Vilken_trig == "cos":
         Tal_c_float = Tal_b_float / math.cos(Vinkel_float)
         print(f"Svar: {Tal_c_float}")
     else:
-        print("error")
-    
+        print("error")  
 elif Vilken_trig == "sin":
     Vilken_sida = input("Vilken sida vill du räkna ut? (a/c)")
     if Vilken_sida == "a":
@@ -73,7 +71,6 @@ elif Vilken_trig == "sin":
         print(f"Svar: {Tal_c_float}")
     else:
         print("error")
-
 elif Vilken_trig == "tan":
     Vilken_sida = input("Vilken sida vill du räkna ut? (b/c)")
     if Vilken_sida == "b":
