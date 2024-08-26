@@ -1,3 +1,9 @@
+print("Välkommen till miniräknaren")
+
+'''
+Trig/tal = Input("Vill du använda trigonometri, eller den vanliga miniröknaren")
+'''
+
 Tal1_str = input("Tal 1:")
 Tal1_int = int(Tal1_str)
 Talhantering = input("Hur vill du hantera talen? ")
@@ -34,7 +40,7 @@ else:
     print("Error")
 
 
-if Talhantering == "/" or "*" or "sqrt":
+if Talhantering.upper() == "/" or "*" or "SQRT":
     Runda = input("Round tal 3?")
     if Runda.upper() == "TRUE":
         print(round(Tal3, 3))
