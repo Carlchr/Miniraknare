@@ -1,12 +1,19 @@
 import math
 
-Vilken_trig = input("Vad för trigonometri vill du använda? (cos/sin/tan för sidor)(arccos/arcsin/arctan för vinkel): ")
+
+while True:
+    Vilken_trig = input("Vad för trigonometri vill du använda? (cos/sin/tan för sidor)(arccos/arcsin/arctan för vinkel): ")
+    if Vilken_trig == "cos" or Vilken_trig == "sin":
+        break
+    print("Not an acceptable input")
+Tal_b_str = float(input("skriv tal b: "))
+Tal_c_str = float(input("skriv tal c: "))
 
 if Vilken_trig == "arccos":
-    Tal_b_str = input("skriv tal b: ")
+    
     Tal_b_float = float(Tal_b_str)
 
-    Tal_c_str = input("skriv tal c: ")
+    
     Tal_c_float = float(Tal_c_str)
 
     cosinus = math.acos(Tal_b_float/Tal_c_float)
