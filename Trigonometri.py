@@ -1,36 +1,32 @@
 import math
 
 
-def trig_func()
-    vilken_trig = input("Vad för trigonometri vill du använda? (cos/sin/tan för sidor)(arccos/arcsin/arctan för vinkel): ")
+def trig_func():
     while True: 
-        if vilken_trig.lower() == ["cos", "sin", "tan", "acos", "atan", "asin"]
+        vilken_trig = input("Vad för trigonometri vill du använda? (cos/sin/tan för sidor)(arccos/arcsin/arctan för vinkel): ")
+        if vilken_trig.lower() == ["cos", "sin", "tan", "acos", "atan", "asin"]:
             return vilken_trig
         print("Not acceptable")
 
 
+def number_defenitions():
 
-        
+    number_1 = float(input("Tal 1: "))
+    number_2 = float(input("Tal 2: "))
+    return number_1, number_2
 
-
-
-
-
-
-
+def calculations(vilken_trig, number_1, number_2):
 
 
-'''
+def main():
 
 
-while True: #körs hela tiden
-    Vilken_trig = input("Vad för trigonometri vill du använda? (cos/sin/tan för sidor)(arccos/arcsin/arctan för vinkel): ")
-    if Vilken_trig == "cos" or Vilken_trig == "sin" or Vilken_trig == "tan" or Vilken_trig == "arccos" or Vilken_trig == "arcsin" or Vilken_trig == "arctan":
-        break #När vilken trig är ett av de alterantiven så sluter loopen, men om den inte är det så behöver man skriva ett  korrekt alternativ
-    print("Not an acceptable input")
 
-Tal_1_float = float(input("skriv tal b: "))
-Tal_2_float = float(input("skriv tal c: "))
+
+if "__name__" == "__main__":
+    main()
+ 
+
 
 if Vilken_trig == "arccos":
     
@@ -101,6 +97,8 @@ elif Vilken_trig == "tan":
         Tal_b_float = Tal_a_float / math.tan(Vinkel_float) 
         print(f"Svar: {Tal_b_float}")        
             
+
+
     elif Vilken_sida == "a":
         Vinkel_str = input("Skriv vinkeln: ")
         Vinkel_float = math.radians(float(Vinkel_str))
@@ -113,5 +111,3 @@ elif Vilken_trig == "tan":
         print("error")
 else:
     print("error")
-
-    '''
