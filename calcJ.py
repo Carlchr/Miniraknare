@@ -2,66 +2,48 @@ import tkinter as tk
 
 main = tk.Tk()
 main.title("calc")
-main.geometry("400x200")
+main.geometry("500x300")
 
-def caluc():
-    print("caluc")
-def metod(a,b, Talhantering):
-    
+equation = tk.StringVar()
 
-    x_float = a
-    y_float = b
+equation_display = tk.Entry(main, textvariable=equation, font=('Arial', 18), justify='right')
+equation_display.place(x=50, y=20, width=300, height=50) 
 
-    if  Talhantering=="+":
-        Tal_3 = x_float+y_float
-        print(Tal_3)
-    elif Talhantering=="-":
-        Tal_3 = x_float-y_float
-        print(Tal_3)
-    elif Talhantering=="/":
-        Tal_3 = x_float/y_float
-        print(Tal_3)
-    elif Talhantering=="*":
-        Tal_3 = x_float*y_float
-        print(Tal_3)
-    elif Talhantering=="//":
-        Tal_3 = x_float//y_float
-        print(Tal_3)
-    elif Talhantering=="**":
-        Tal_3 = x_float**y_float
-        print(Tal_3)
-    elif Talhantering=="sqrt":
-        Tal_3 = x_float**0.5
-        print(Tal_3)
+#Till rad 22 (nytt)
+def caluculate():
+    try: 
+        result = eval(equation.get())  # Använd eval för att beräkna uttrycket
+        equation.set(result)  # Uppdatera skärmfältet med resultatet
+    except Exception as e:
+        equation.set("Error")
 
-    Talhantering=input("Round(Tal_3?)")
-    if Talhantering=="True":
-        print(round(Tal_3, 2))
-    elif Talhantering=="False":
-        print(Tal_3)
-    else:
-        print(Tal_3)
+# Funktion för att hantera knapptryckningar
+def button_click(value): 
+    current_equation = equation.get()
+    equation.set(current_equation + str(value))  # Lägg till tryckt knapp till ekvationen
 
-def val(i):
-    print(i)
-    
+def clear():
+    equation.set("")
 
 
 
+#Nya namn har tillagts och andra knappar
 
-button1 = tk.Button(main,text="=",command=lambda: metod (equation))
-button1.place(x=100, y=50, width=50, height=50)
-button2 = tk.Button(main,text="1",command=lambda: val("1"))
-button2.place(x=150, y=50, width=50, height=50)
-button3 = tk.Button(main,text="2",command=lambda: val("2"))
-button3.place(x=200, y=50, width=50, height=50)
-button4 = tk.Button(main,text="+",command=lambda: val("+"))
-button4.place(x=250, y=50, width=50, height=50)
-button5 = tk.Button(main,text="-",command=lambda: val("-"))
-button5.place(x=250, y=100, width=50, height=50)
+button_equals = tk.Button(main,text="=", command=caluculate)
+button_equals.place(x=50, y=70, width=50, height=50)
+button1 = tk.Button(main,text="1",command=lambda: button_click("1"))
+button1.place(x=100, y=70, width=50, height=50)
+button2 = tk.Button(main,text="2",command=lambda: button_click("2"))
+button2.place(x=150, y=70, width=50, height=50)
+button_add = tk.Button(main,text="+",command=lambda: button_click ("+"))
+button_add.place(x=50, y=120, width=50, height=50)
+button_sub = tk.Button(main,text="-",command=lambda: button_click("-"))
+button_sub.place(x=50, y=170, width=50, height=50) 
+button_clear = tk.Button(main,text="C",command=lambda: button_click (""))
+button_clear.place(x=200, y=170, width=50, height=50)
 
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": 
 
     main.mainloop()
