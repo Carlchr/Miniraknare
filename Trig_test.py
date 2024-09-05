@@ -17,7 +17,6 @@ def trig_func(is_side):
                 print("Not acceptable")
             else:
                 return vilken_trig
-        
 
 def get_angle():
     vinkel_float = math.radians(float(input("Skriv vinkeln: ")))
@@ -25,10 +24,9 @@ def get_angle():
 
 def calculations_angle():
     vilken_trig = trig_func(False)
-    nummer_1, nummer_2 = main()
 
     nummer_1 = float(input("Tal 1(minsta)(a vid tan): "))
-    nummer_2 = float(input("Tal 2(största))(b vid tan): "))
+    nummer_2 = float(input("Tal 2(största)(b vid tan): "))
 
     if vilken_trig == "acos":
         cosinus = math.acos(nummer_1/nummer_2)
@@ -42,19 +40,16 @@ def calculations_angle():
 
 
 def calculations_side():
-    #Hämtar variabler
     vilken_trig = trig_func(True)
     vinkel_float = get_angle()
-    nummer_1, nummer_2 = main()
     
     nummer_1 = float(input("Tal 1(minsta)(a vid tan): "))
-    nummer_2 = float(input("Tal 2(största))(b vid tan): "))
+    nummer_2 = float(input("Tal 2(största)(b vid tan): "))
 
     if vilken_trig == "cos":
         vilken_sida = input("Vilken sida vill du räkna ut? (b/c)")
 
         if vilken_sida == "b":
-            # Gör om vinkel till float samt radianer så att datorn räknar rätt
             nummer_1 = math.cos(vinkel_float) * nummer_2
             print(f"Svar: {nummer_1}")        
         elif vilken_sida == "c":
@@ -85,12 +80,12 @@ def calculations_side():
             nummer_1 = nummer_2 * math.tan(vinkel_float)
             print(f"Svar: {nummer_1}")
         else:
-            print("error")
+            print("Error")
     else:
-        print("error")
+        print("Error")
 
 def main():
-    trig_val = input("Vill du räkna ut sida eller vinkel").lower()
+    trig_val = input("Vill du räkna ut sida eller vinkel: ").lower()
 
     if trig_val == "sida":
         calculations_side()
@@ -101,3 +96,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
