@@ -1,24 +1,37 @@
 import math
 
-def trig_func():
-    vilken_trig = main()
-    trig_list = ["cos", "sin", "tan", "acos", "atan", "asin"]
-    while True: 
-        vilken_trig = float(input("Vad för trigonometri vill du använda? (cos/sin/tan för sidor)(arccos/arcsin/arctan för vinkel): "))
-        if vilken_trig.lower() not in trig_list:
-            print("Not acceptable")
-        else:
-            return vilken_trig.lower()
+def trig_func(is_side):
 
+    #listor för de olika trigonometri funktionerna
+    trig_list_side = ["cos", "sin", "tan"]
+    trig_list_angle = ["acos", "atan", "asin"]
+    
+    while True: 
+        if is_side:
+            vilken_trig = input("Vad för trigonometri vill du använda? (cos/sin/tan): ")
+            if vilken_trig.lower() not in trig_list_side:
+                print("Not acceptable")
+            else:
+                return vilken_trig
+        else:
+            vilken_trig = input("Vad för trigonometri vill du använda? (acos/asin/atan): ")
+            if vilken_trig.lower() not in trig_list_angle:
+                print("Not acceptable")
+            else:
+                return vilken_trig
+
+    #Funktion för att få vinkeln
 def get_angle():
     vinkel_float = math.radians(float(input("Skriv vinkeln: ")))
     return vinkel_float
 
 def calculations_angle():
-    vilken_trig = trig_func()
-    nummer_1 = main()
-    nummer_2 = main()
+        #hämtar variabler
 
+    vilken_trig = trig_func(False)
+
+    nummer_1 = float(input("Tal 1(minsta)(a vid tan): "))
+    nummer_2 = float(input("Tal 2(största)(b vid tan): "))
 
     if vilken_trig == "acos":
         cosinus = math.acos(nummer_1/nummer_2)
@@ -32,37 +45,39 @@ def calculations_angle():
 
 
 def calculations_side():
-    #Hämtar vilken_trig
-    vilken_trig = trig_func()
 
+    #hämtar variabler, och kollar om (is_side) dvs om man ska räkna ut sidan är sant
+    vilken_trig = trig_func(True)
+    vinkel_float = get_angle()
+    
+    #När koden körs så skriver man in talen
+    nummer_1 = float(input("Tal 1(minsta)(a vid tan): "))
+    nummer_2 = float(input("Tal 2(största)(b vid tan): "))
+
+    #side calculations
     if vilken_trig == "cos":
         vilken_sida = input("Vilken sida vill du räkna ut? (b/c)")
-        vinkel_float = get_angle()
 
         if vilken_sida == "b":
-            # Gör om vinkel till float samt radianer så att datorn räknar rätt
             nummer_1 = math.cos(vinkel_float) * nummer_2
             print(f"Svar: {nummer_1}")        
         elif vilken_sida == "c":
             nummer_2 = nummer_1 / math.cos(vinkel_float)
             print(f"Svar: {nummer_2}")
         else:
-            print("error")
-
+            print("Error")
     elif vilken_trig == "sin":
-
         vilken_sida = input("Vilken sida vill du räkna ut? (a/c)")
+
         if vilken_sida == "a":     
             nummer_1 = math.sin(vinkel_float) * nummer_2
             print(f"Svar: {nummer_1}")                 
         elif vilken_sida == "c":
-            nummer_2 = nummer_1 / math.sin(input(vinkel_float))
+            nummer_2 = nummer_1 / math.sin(vinkel_float)
             print(f"Svar: {nummer_2}")
         else:
-            print("error")
-
+            print("Error")
     elif vilken_trig == "tan":
-
         vilken_sida = input("Vilken sida vill du räkna ut? (b/c)")
         
         if vilken_sida == "b":
@@ -72,26 +87,19 @@ def calculations_side():
             nummer_1 = nummer_2 * math.tan(vinkel_float)
             print(f"Svar: {nummer_1}")
         else:
-            print("error")
+            print("Error")
     else:
-        print("error")
-
+        print("Error")
 
 def main():
-    vilken_trig = float(input("Vad för trigonometri vill du använda? (cos/sin/tan för sidor)(arccos/arcsin/arctan för vinkel): "))
+    trig_val = input("Vill du räkna ut sida eller vinkel: ").lower()
 
-    vilken_trig = trig_func(vilken_trig)
+    if trig_val == "sida":
+        calculations_side()
+    elif trig_val == "vinkel":
+        calculations_angle()
+    else:
+        print("Ogilitigt svar, försök igen")
 
-    nummer_1 = float(input("Tal 1(minsta)(a vid tan): "))
-    nummer_2 = float(input("Tal 2(största))(b vid tan): "))
-    return nummer_1, nummer_2
-
-    calculations_angle(vilken_trig, number_1, number_2)
-    calculations_side(vilken_trig, number_1, number_2)
-
-
-if "__name__" == "__main__":
+if __name__ == "__main__":
     main()
- 
-
-
