@@ -1,47 +1,57 @@
-print("Välkommen till miniräknaren")
-
-'''
-Trig/tal = Input("Vill du använda trigonometri, eller den vanliga miniröknaren")
-'''
-
-Tal1_str = input("Tal 1:")
-Tal1_int = int(Tal1_str)
-Talhantering = input("Hur vill du hantera talen? ")
-
-if Talhantering.upper() != "SQRT": 
-    Tal2_str = input("Tal 2: ")
-    Tal2_int = int(Tal2_str)
-
-if Talhantering == "*":
-    Tal3 = Tal1_int * Tal2_int
-    print(Tal3)
-elif Talhantering == "+":
-    Tal3 = Tal1_int + Tal2_int
-    print(Tal3)
-elif Talhantering == "/":
-    Tal3 = Tal1_int / Tal2_int
-    print(Tal3)
-elif Talhantering == "-":
-    Tal3 = Tal1_int - Tal2_int
-    print(Tal3)
-elif Talhantering == "^^":
-    Tal3 = Tal1_int ** Tal2_int
-    print(Tal3)
-elif Talhantering == "//":
-    Tal3 = Tal1_int // Tal2_int
-    print(Tal3)
-elif Talhantering.upper() == "SQRT":
-    Tal3 = Tal1_int ** 0.5
-    print(Tal3)
-elif Talhantering == "%":
-    Tal3 = Tal1_int % Tal2_int
-    print(Tal3)
-else:
-    print("Error")
+#Funktionen använder talhantering från mainmetoden
+def ratt_raknesatt(Talhantering):
+    #När talhantering är en av re räknesätten så ges möjligheten att skriva tal 1, men annars så skrivs ett felmmeddelande och 
+    while True: 
+        if Talhantering in ["+", "-", "*", "/"]:
+            Tal1_int = int(input("Tal 1: "))
+            return Tal1_int
+        else:
+            print("error, försök igen")
+            Talhantering = input("Hur vill du hantera talen? ")
+            break
 
 
-if Talhantering.upper() == "/" or "*" or "SQRT":
-    Runda = input("Round tal 3?")
-    if Runda.upper() == "TRUE":
-        print(round(Tal3, 3))
+#Funktionen använder talhantering och tal1_int från mainmetoden
+def calculations(Talhantering, Tal1_int):
 
+    #har det här istället för main för att då behöver man inte ha globala variabler osv
+    if Talhantering.lower() != "sqrt":
+        Tal2_int = int(input("Tal 2: "))
+    else:    
+        Tal2_int = None        
+
+    if Talhantering == "*":
+        Tal3 = Tal1_int * Tal2_int
+    elif Talhantering == "+":
+        Tal3 = Tal1_int + Tal2_int
+    elif Talhantering == "/":
+        Tal3 = Tal1_int / Tal2_int
+    elif Talhantering == "-":
+        Tal3 = Tal1_int - Tal2_int
+    elif Talhantering == "^^":
+        Tal3 = Tal1_int ** Tal2_int
+    elif Talhantering == "//":
+        Tal3 = Tal1_int // Tal2_int
+    elif Talhantering.lower() == "sqrt":
+        Tal3 = Tal1_int ** 0.5
+        
+    print (f"Resultatet är: {Tal3}")    
+
+
+def main():
+
+    print("Välkommen till miniräknaren")
+    Talhantering = input("Hur vill du hantera talen? ")
+    
+    Tal1_int = ratt_raknesatt(Talhantering)
+    Tal3 = calculations(Talhantering,Tal1_int) 
+    
+    if Talhantering.upper() == "/" or "*" or "SQRT":
+        Runda = input("Round tal 3?")
+        if Runda.upper() == "TRUE":
+            print(round(Tal3, 3))
+
+
+#Visar att Main metoden är main() och att den ska köras först
+if __name__ == "__main__":
+    main()
