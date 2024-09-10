@@ -4,8 +4,6 @@ main = tk.Tk()
 main.title("calc")
 main.geometry("400x200")
 
-def caluc():
-    print("caluc")
 def metod(a,b, Talhantering):
     
 
@@ -32,14 +30,6 @@ def metod(a,b, Talhantering):
         print(Tal_3)
     elif Talhantering=="sqrt":
         Tal_3 = x_float**0.5
-        print(Tal_3)
-
-    Talhantering=input("Round(Tal_3?)")
-    if Talhantering=="True":
-        print(round(Tal_3, 2))
-    elif Talhantering=="False":
-        print(Tal_3)
-    else:
         print(Tal_3)
 
 def val(i):
