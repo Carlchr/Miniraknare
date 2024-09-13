@@ -18,7 +18,7 @@ def calculations(Talhantering, Tal1_int):
     if Talhantering.lower() != "sqrt":
         Tal2_int = int(input("Tal 2: "))
     else:    
-        Tal2_int = None        
+        Tal2_int = None    
 
     if Talhantering == "*":
         Tal3 = Tal1_int * Tal2_int
